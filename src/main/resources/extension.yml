@@ -1,8 +1,8 @@
-name: "MyExtension"
-main: "io.github.mcpaimon.extension.template.Template"
+name: "ServerTools"
+main: "io.github.mcpaimon.extension.server.ServerExtension"
 version: "1.0.0"
 
 git:
   provider: github
   owner: MCPaimon-Extension
-  repository: template
+  repository: server
