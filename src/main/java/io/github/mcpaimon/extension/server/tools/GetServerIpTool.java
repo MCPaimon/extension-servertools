@@ -5,6 +5,7 @@ import io.github.mcpaimon.api.tools.AITool;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
@@ -24,6 +25,11 @@ public class GetServerIpTool implements AITool {
     @Override
     public String getParametersJsonSchema() { 
         return "{ \"type\": \"object\", \"properties\": {} }"; 
+    }
+
+    @Override
+    public List<String> getCategories() {
+        return List.of("server");
     }
 
     @Override

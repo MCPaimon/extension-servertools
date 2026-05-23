@@ -4,6 +4,7 @@ import io.github.mcpaimon.api.model.AIAccount;
 import io.github.mcpaimon.api.tools.AITool;
 import org.bukkit.Bukkit;
 
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -22,6 +23,11 @@ public class GetServerTickTool implements AITool {
     @Override
     public String getParametersJsonSchema() { 
         return "{ \"type\": \"object\", \"properties\": {} }"; 
+    }
+
+    @Override
+    public List<String> getCategories() {
+        return List.of("server");
     }
 
     @Override

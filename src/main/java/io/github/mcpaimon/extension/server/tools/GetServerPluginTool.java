@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
@@ -25,6 +26,11 @@ public class GetServerPluginTool implements AITool {
     @Override
     public String getParametersJsonSchema() { 
         return "{ \"type\": \"object\", \"properties\": {} }"; 
+    }
+
+    @Override
+    public List<String> getCategories() {
+        return List.of("server");
     }
 
     @Override

@@ -14,6 +14,9 @@ public class ServerExtension implements IMCExtension {
     public void onLoad(JavaPlugin plugin, Executor executor) {
         if (plugin instanceof MCAIPlugin mcaiPlugin) {
             
+            // Create the server category
+            mcaiPlugin.getManager().createCategory("server", "Tools for server information and status");
+            
             // Register your custom server tools here
             mcaiPlugin.getManager().registerTool(new GetServerTickTool());
             mcaiPlugin.getManager().registerTool(new GetServerPingTool());
