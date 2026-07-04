@@ -1,6 +1,10 @@
-name: "ServerTools"
-main: "io.github.mcpaimon.extension.server.ServerExtension"
-version: "1.0.0"
+name: ${name}
+version: ${version}
+
+mains:
+  papermc: "${group}.papermc.ServerTools"
+  spigotmc: "${group}.spigotmc.ServerTools"
+  foliamc: "${group}.foliamc.ServerTools"
 
 git:
   provider: github
