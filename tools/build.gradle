@@ -18,7 +18,7 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
-            artifactId = 'tools'
+            artifactId = 'servertools-tools'
 
             pom {
                 name = project.name

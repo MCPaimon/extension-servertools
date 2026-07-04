@@ -8,5 +8,5 @@ mains:
 
 git:
   provider: github
-  owner: MCPaimon-Extension
-  repository: server
+  owner: MCPaimon
+  repository: extension-servertools
