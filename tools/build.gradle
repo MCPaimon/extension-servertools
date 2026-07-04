@@ -1,0 +1,29 @@
+repositories {
+    maven {
+        name = "papermc-repo"
+        url = "https://repo.papermc.io/repository/maven-public/"
+    }
+}
+
+dependencies {
+    // Paper API (superset of the Bukkit API; required to compile Bukkit#getTPS)
+    compileOnly 'io.papermc.paper:paper-api:26.1.2.build.+'
+}
+
+base {
+    archivesName = "${project.property('project-name')}Tools"
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifactId = 'tools'
+
+            pom {
+                name = project.name
+                description = "MCPaimon Extension ServerTools Tools"
+            }
+        }
+    }
+}

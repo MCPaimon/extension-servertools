@@ -1,25 +1,36 @@
-# MCPaimon Server Extension
+# MCPaimon ServerTools Extension
 
-This module is an extension for the MCPaimon AI Plugin, designed to provide AI agents with real-time data regarding the Minecraft server's status, performance, and configurations.
+This module is an extension for the MCAgents plugin, designed to provide AI agents with real-time data regarding the Minecraft server's status, performance, and configurations. It mirrors the structure of the [Core extension](https://github.com/MCPaimon/extension-core) and supports all three platforms: PaperMC, SpigotMC, and FoliaMC.
+
+## Project Structure
+
+* **`tools/`**: Platform-neutral AI tools shared by every platform module.
+* **`platforms/papermc/`**: PaperMC entry point (`ServerTools`).
+* **`platforms/spigotmc/`**: SpigotMC entry point (`ServerTools`).
+* **`platforms/foliamc/`**: FoliaMC entry point (`ServerTools`).
+* **`src/main/resources/`**: The global `extension.yml` descriptor with the per platform main classes.
 
 ## Features & AI Tools
 
 This extension registers the following tools to the AI agent:
 
-* **`get_server_tick`**: Retrieves the server's current TPS (Ticks Per Second) averages for the last 1m, 5m, and 15m.
+* **`get_server_tick`**: Retrieves the server's current TPS (Ticks Per Second) averages for the last 1m, 5m, and 15m. *(PaperMC and FoliaMC only; reports unavailability on SpigotMC)*
 * **`get_server_ping`**: Checks the current connection latency (ping) of the player interacting with the AI.
 * **`get_server_ip`**: Fetches the server's IP address and port. *(Requires OP permission)*
 * **`get_server_plugin`**: Lists all currently installed and active plugins on the server. *(Requires OP permission)*
 
 ## Requirements
+
 * Java 25
-* PaperMC 1.21+ (Paper API 26.1.2)
-* MCPaimon AI Plugin Core
+* PaperMC, SpigotMC, or FoliaMC (API 26.1.2)
+* MCAgents Plugin (`io.github.mcpaimon` artifacts, version 2026.0.7-8)
 
 ## Build Instructions
-To build the extension, use the included Gradle wrapper:
+
+To build the extension and create a merged JAR containing all platform implementations:
+
 ```bash
 ./gradlew build
 ```
 
-The compiled artifact will be located in `build/libs/`.
+The compiled artifact (Shadow JAR) will be located in `build/libs/`.

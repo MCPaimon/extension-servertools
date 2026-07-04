@@ -32,10 +32,15 @@ public class GetServerTickTool implements AITool {
 
     @Override
     public CompletableFuture<String> execute(Map<String, Object> arguments, AIAccount account) {
-        // Paper API allows getting TPS array directly
-        double[] tps = Bukkit.getTPS();
-        String result = String.format("Server TPS - 1m: %.2f, 5m: %.2f, 15m: %.2f", tps[0], tps[1], tps[2]);
-        
-        return CompletableFuture.completedFuture(result);
+        try {
+            // Bukkit#getTPS is available on PaperMC and FoliaMC but not on SpigotMC
+            double[] tps = Bukkit.getTPS();
+            String result = String.format("Server TPS - 1m: %.2f, 5m: %.2f, 15m: %.2f", tps[0], tps[1], tps[2]);
+
+            return CompletableFuture.completedFuture(result);
+        } catch (NoSuchMethodError e) {
+            return CompletableFuture.completedFuture(
+                    "Error: TPS information is not available on this server platform (requires PaperMC or FoliaMC).");
+        }
     }
 }
